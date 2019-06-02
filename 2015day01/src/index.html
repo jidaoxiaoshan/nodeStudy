@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小小相册</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+            background-color: antiquewhite;
+        }
+
+        h1 {
+            background-color: coral;
+            padding: 20px;
+            color: #fff;
+            box-shadow: 0 2px 3px #ded2ae;
+            margin:0 0 3px;
+        }
+
+        .container {
+            box-sizing: border-box;
+            padding: 30px;
+            width: 100%;
+            height: auto;
+            min-height: 700px;
+        }
+
+        .container .row {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap
+        }
+
+        .container .row .col {
+            width: 280px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 10px;
+        }
+
+        .container .row .col a {
+            width: 200px;
+            height: 200px;
+            box-shadow: 1px 1px 3px #aaaaaa;
+            /*display: inline-block;*/
+            border-radius: 20px;
+            background-color: coral;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container .row .col a:hover {
+            box-shadow: 3px 3px 5px #aaaaaa;
+            background-color: #ded2ae;
+        }
+
+        .container .row .col h4 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>小小相册</h1>
+<div class="container">
+    <div class="row">
+        {{ each files }}
+        <div class="col">
+            <a href="./{{ $value }}" class="thumbnail">
+                <img
+                        style="width: 80px;height: 80px;border-radius: 10px"
+                        src="...">
+            </a>
+            <h4>{{ $value }}</h4>
+        </div>
+        {{ /each }}
+    </div>
+</div>
+</body>
+</html>
